@@ -1,5 +1,6 @@
 import Header from "../../components/header/Header";
-import Post from "../../components/post/Post";
+import Posts from "../../components/posts/Posts";
+
 import SideBar from "../../components/sideBar/SideBar";
 import "./home.css"
 function Home() {
@@ -7,7 +8,7 @@ function Home() {
       <>
           <Header/>
           <div className="Home">
-            <Post />
+          <Posts />
             <SideBar />
         
          </div>

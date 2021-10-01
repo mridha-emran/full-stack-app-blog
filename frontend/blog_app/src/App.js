@@ -1,5 +1,4 @@
 
-import './App.css';
 import Topbar from './components/top/Topbar';
 import Home from './pages/Home/Home';
 
