@@ -24,9 +24,17 @@ function Topbar() {
         <li className="top-list-item"> <Link className="link" to="/write">
               WRITE
             </Link></li>
-        <li className="top-list-item"> <Link className="link" to="/login">
+        {/* <li className="top-list-item"> <Link className="link" to="/login">
               LOGOUT
-            </Link></li>
+            </Link></li> */}
+          <li className="topListItem"> <Link className="link" to="/login">
+                LOGIN
+              </Link>
+            </li><li className="topListItem">
+              <Link className="link" to="/register">
+                REGISTER
+              </Link>
+            </li>
       </ul>
     </div>
     <div className="top-right">
