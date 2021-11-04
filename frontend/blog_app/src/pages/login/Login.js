@@ -21,24 +21,30 @@ function Login() {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
+
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }
 
   }
+
     return (
       <div className="login">
          <span className="loginTitle">Login</span>
-        <from className="loginForm" onsubmit={handleSubmit}>
-          <label>email</label>
-          <input type="text" placeholder="enter your email" ref={userRef}/>
+        <form className="loginForm" onSubmit={handleSubmit}>
+          <label>username</label>
+          <input className="loginInput" type="text"  placeholder="enter your email" ref={userRef}/>
        
           <label>password</label>
           <input className="loginInput" type="password" placeholder="Enter your password..." ref={passwordRef}/>
     
-        <button className="loginButton" type="submit">Login</button>
-        </from>
+          <button className="loginButton" type="submit"  disabled={isFetching}>
+          Login
+        </button>
+        </form>
+
+      
         <button className="loginRegisterButton">Register</button>
         
       </div>

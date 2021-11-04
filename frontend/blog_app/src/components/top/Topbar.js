@@ -1,7 +1,13 @@
 import './topbar.css';
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
+import { Context } from "../../context/Context"
 function Topbar() {
+  const { user ,  dispatch  } = useContext(Context);
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <div className="top">
     <div className="top-left">
@@ -24,24 +30,43 @@ function Topbar() {
         <li className="top-list-item"> <Link className="link" to="/write">
               WRITE
             </Link></li>
-        {/* <li className="top-list-item"> <Link className="link" to="/login">
-              LOGOUT
-            </Link></li> */}
-          <li className="topListItem"> <Link className="link" to="/login">
+        <li className="top-list-item"  onClick={handleLogout}> <Link className="link" to="/login">
+        {user && "LOGOUT"}
+            </Link></li>
+          {/* <li className="topListItem"> <Link className="link" to="/login">
                 LOGIN
               </Link>
             </li><li className="topListItem">
               <Link className="link" to="/register">
                 REGISTER
               </Link>
-            </li>
+            </li> */}
       </ul>
     </div>
     <div className="top-right">
-    <img className="topImg"
-              src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+    {user ? (
+         <Link to="/setting">
+          <img className="topImg"
+              src={user.pofilePic}
               alt=""
             />
+            </Link>
+            ):(
+              <ul className="top-list">
+                <li className="top-list-item">
+
+                <Link className="link" to="/login">
+                LOGIN
+              </Link>
+              </li>
+              <li className="topListItem">
+              <Link className="link" to="/register">
+                REGISTER
+              </Link>
+            </li>
+                
+              </ul>
+            )}
     <i className="topSearchIcon fas fa-search"></i>
     </div>
 
